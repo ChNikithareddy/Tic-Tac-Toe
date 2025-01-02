@@ -1,78 +1,97 @@
-*{
-    margin: 0;
-    padding: 0;
-    
+/* Basic universal reset + box-sizing approach */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* ensures padding doesn’t affect total width/height */
 }
 
-body{
-    background-color: #548687;
-    text-align: center;
-        
-    }
-    
-    
+/* Body style */
+body {
+  background-color: #548687; /* calm teal background */
+  text-align: center;
+  font-family: sans-serif; /* you can choose a more specific font if you want */
+}
 
-    
-    .container {
-        height: 70vh;
-        display: flex;
-      
-        justify-content: center;
-        align-items: center;
-      }
-      
+/* A flexible container that likely holds the entire game or UI */
+.container {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Buttons container (like a grid or group of squares/buttons) */
 .buttons {
-    height: 60vmin;
-    width: 60vmin;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5vmin;
-
+  height: 60vmin;
+  width: 60vmin;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5vmin;
+  /* Alternatively, you could use “gap: 2vmin;” if you want more spacing. */
 }
+
+/* Each square or "box" in the grid */
 .box {
-    height: 18vmin;
-    width: 18vmin;
-    border-radius: 1rem;
-    border: none;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
-    font-size: 8vmin;
-    color: #b0413e;
-    background-color: #ffffc7;
-  }
+  height: 18vmin;
+  width: 18vmin;
+  background-color: #ffffc7; /* pale yellow */
+  color: #b0413e; /* deep red for text */
+  font-size: 8vmin; 
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+
+  /* Optional: smooth hover transitions */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.4);
+}
+
+/* Reset & new buttons */
+#reset-btn,
+#new-btn {
+  padding: 1rem;
+  font-size: 1.25rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: #191913;
+  /* Distinguish the text colors for each button: */
+  color: #e11919; /* “reset” button color or #0e0e92 “new” color could be used either way */
+}
+
+/* If you want to separate them distinctly, you can do:
 #reset-btn {
-    padding: 1rem;
-    font-size: 1.25rem;
-    background-color: #191913;
-    color: #e11919;
-    border-radius: 1rem;
-    border: none;
-  }
-  
-  #new-btn {
-    padding: 1rem;
-    font-size: 1.25rem;
-    background-color: #191913;
-    color: #0e0e92;
-    border-radius: 1rem;
-    border: none;
-  }
-  
-  #msg {
-    color: #e4e40b;
-    font-size: 5vmin;
-  }
-  
-  .msg-container {
-    height: 100vmin;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 4rem;
-  }
-  
-  .hide {
-    display: none;
-  }
+  color: #e11919;
+}
+#new-btn {
+  color: #0e0e92;
+} 
+*/
+
+/* A large message for the user */
+#msg {
+  color: #e4e40b;
+  font-size: 5vmin;
+}
+
+/* A container for the message or “status” area */
+.msg-container {
+  height: 100vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+/* Utility class to hide elements visually while removing them from layout flow */
+.hide {
+  display: none !important; /* use !important if you really want to override other rules */
+}
